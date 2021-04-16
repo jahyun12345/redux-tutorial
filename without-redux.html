@@ -1,0 +1,84 @@
+<html>
+    <body>
+        <style>
+            .container {
+                border:5px solid black;
+                padding: 10px;
+            }
+        </style>
+        <div id="c"></div>
+        <div id="a"></div>
+        <div id="l"></div>
+        <div id="m"></div>
+        <script>
+            function brown() {
+                document.querySelector('#c').innerHTML = `
+                    <div class="container" id="component_c">
+                    <h1>Brown</h1>
+                    <input 
+                        type="button" 
+                        value="fire"
+                        onClick="
+                            document.querySelector('#component_c').style.backgroundColor = 'saddlebrown';
+                            document.querySelector('#component_a').style.backgroundColor = 'saddlebrown';
+                            document.querySelector('#component_l').style.backgroundColor = 'saddlebrown';
+                            document.querySelector('#component_m').style.backgroundColor = 'saddlebrown';
+                        "
+                    />
+                `;
+            }
+            brown();
+            function hazel() {
+                document.querySelector('#a').innerHTML = `
+                    <div class="container" id="component_a">
+                    <h1>Hazel</h1>
+                    <input 
+                        type="button" 
+                        value="fire"
+                        onClick="
+                            document.querySelector('#component_c').style.backgroundColor = 'darkkhaki';
+                            document.querySelector('#component_a').style.backgroundColor = 'darkkhaki';
+                            document.querySelector('#component_l').style.backgroundColor = 'darkkhaki';
+                            document.querySelector('#component_m').style.backgroundColor = 'darkkhaki';
+                        "
+                    />
+                `;
+            }
+            hazel();
+            function blue() {
+                document.querySelector('#l').innerHTML = `
+                    <div class="container" id="component_l">
+                    <h1>Blue</h1>
+                    <input 
+                        type="button" 
+                        value="fire"
+                        onClick="
+                            document.querySelector('#component_c').style.backgroundColor = 'skyblue';
+                            document.querySelector('#component_a').style.backgroundColor = 'skyblue';
+                            document.querySelector('#component_l').style.backgroundColor = 'skyblue';
+                            document.querySelector('#component_m').style.backgroundColor = 'skyblue';   
+                        "
+                    />
+                `;
+            }
+            blue();
+            function green() {
+                document.querySelector('#m').innerHTML = `
+                    <div class="container" id="component_m">
+                    <h1>Green</h1>
+                    <input 
+                        type="button" 
+                        value="fire"
+                        onClick="
+                            document.querySelector('#component_c').style.backgroundColor = 'yellowgreen';
+                            document.querySelector('#component_a').style.backgroundColor = 'yellowgreen';
+                            document.querySelector('#component_l').style.backgroundColor = 'yellowgreen';
+                            document.querySelector('#component_m').style.backgroundColor = 'yellowgreen';                        
+                        "
+                    />
+                `;
+            }
+            green();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.0.0-beta.1/redux.js">
+        </script>
+    </head>
+    <body>
+        <style>
+            .container {
+                border:5px solid black;
+                padding: 10px;
+            }
+        </style>
+        <div id="c"></div>
+        <div id="a"></div>
+        <div id="l"></div>
+        <div id="m"></div>
+        <script>
+            // state : 현재 state 값 => 원본데이터 복제 후 state 값 설정 필요
+            function reducer(state, action) {
+                console.log({state:state, action:action});
+                // 초기화 단계
+                if (state === undefined) {
+                    return {color:'pink'};
+                }
+                var newState;
+                if (action.type === 'CHANGE_COLOR') {
+                    newState = Object.assign({}, state, {color:action.color});
+                    console.log({newState:newState});
+                }
+                return newState;
+            }
+            var store = Redux.createStore(reducer);
+
+            function brown() {
+                var state = store.getState();
+                document.querySelector('#c').innerHTML = `
+                    <div class="container" id="component_c" style="background-color:${state.color}">
+                    <h1>Brown</h1>
+                    <input 
+                        type="button" 
+                        value="fire"
+                        onClick="
+                            store.dispatch({type:'CHANGE_COLOR', color:'saddlebrown'});
+                        "
+                    />
+                `;
+            }
+            store.subscribe(brown);
+            brown();
+
+            function hazel() {
+                var state = store.getState();
+                document.querySelector('#a').innerHTML = `
+                    <div class="container" id="component_a" style="background-color:${state.color}">
+                    <h1>Hazel</h1>
+                    <input 
+                        type="button" 
+                        value="fire"
+                        onClick="
+                            store.dispatch({type:'CHANGE_COLOR', color:'darkkhaki'});
+                        "
+                    />
+                `;
+            }
+            store.subscribe(hazel);
+            hazel();
+
+            function blue() {
+                var state = store.getState();
+                document.querySelector('#l').innerHTML = `
+                    <div class="container" id="component_l" style="background-color:${state.color}">
+                    <h1>Blue</h1>
+                    <input 
+                        type="button" 
+                        value="fire"
+                        onClick="
+                            store.dispatch({type:'CHANGE_COLOR', color:'skyblue'});
+                        "
+                    />
+                `;
+            }
+            store.subscribe(blue);
+            blue();
+
+            function green() {
+                var state = store.getState();
+                document.querySelector('#m').innerHTML = `
+                    <div class="container" id="component_m" style="background-color:${state.color}">
+                    <h1>Green</h1>
+                    <input 
+                        type="button" 
+                        value="fire"
+                        onClick="
+                            store.dispatch({type:'CHANGE_COLOR', color:'yellowgreen'});
+                        "
+                    />
+                `;
+            }
+            store.subscribe(green);
+            green();
+        </script>
+    </body>
+</html>
